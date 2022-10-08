@@ -2,7 +2,7 @@
 #include "current/bricks/sync/waitable_atomic.h"
 #include "current/blocks/http/api.h"
 
-DEFINE_uint16(port, 5000, "The local port to listen on.");
+DEFINE_uint16(port, 80, "The local port to listen on.");
 
 int main(int argc, char** argv) {
   ParseDFlags(&argc, &argv);
