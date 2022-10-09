@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  pre_service:
+    build: pre
+  post_service:
+    build: post
+    depends_on:
+      pre_service:
+        condition: service_healthy
