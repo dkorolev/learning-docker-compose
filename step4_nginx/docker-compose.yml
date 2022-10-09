@@ -3,4 +3,4 @@ services:
   nginx_example:
     build: nginx_example
     ports:
-    - 5000:80
+    - ${PORT}:80
