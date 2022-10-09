@@ -2,9 +2,19 @@
 #include "current/bricks/sync/waitable_atomic.h"
 #include "current/blocks/http/api.h"
 
-DEFINE_uint16(port, 80, "The local port to listen on.");
+#include <csignal>
+
+DEFINE_uint16(port, 5000, "The local port to listen on.");
+
+void handle_signal(int code) {
+  std::cerr << "\nReceived signal " << code << ", terminating.\n";
+  std::exit(code);
+}
 
 int main(int argc, char** argv) {
+  signal(SIGINT, handle_signal);
+  signal(SIGTERM, handle_signal);
+
   ParseDFlags(&argc, &argv);
 
   auto& http = HTTP(current::net::BarePort(FLAGS_port));
@@ -21,7 +31,7 @@ int main(int argc, char** argv) {
     *done.MutableScopedAccessor() = true;
   });
 
-  std::cout << "Hello World listening on http://localhost:" << FLAGS_port << '.' << std::endl;
+  std::cout << "Hello World listening inside Docker on post " << FLAGS_port << '.' << std::endl;
 
   done.Wait([](bool done) { return done; });
   std::cout << "Terminated." << std::endl;
