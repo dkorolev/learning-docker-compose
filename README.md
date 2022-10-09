@@ -13,7 +13,7 @@ This is to serve as a cheatsheet / reference, for myself and possibly others, co
 - [x] Containers communicating via each other within a "local" network.
 - [x] Sharing volumes, both with the host machine and among containers.
 - [x] Pass env vars arguments from `docker-compose.yml` to a container.
-- [ ] Startup order, keepalives, delayed keepalives.
+- [x] Startup order, keepalives, delayed keepalives.
 - [ ] Autorestart policy.
 
 ## Setup
