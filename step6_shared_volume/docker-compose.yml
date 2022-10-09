@@ -8,5 +8,11 @@ services:
     build: reader
     volumes:
     - ${VOLUME:-virtual}:/shared
+  server:
+    build: server
+    volumes:
+    - ${VOLUME:-virtual}:/shared
+    ports:
+    - ${PORT:-5000}:80
 volumes:
   virtual: {}
