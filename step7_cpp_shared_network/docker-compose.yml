@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  add_service:
+    build: add
+  inc_service:
+    build: inc
+    command: --by ${BY:-1}
+    ports:
+    - 5000:80
