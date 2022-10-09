@@ -8,9 +8,9 @@ This is to serve as a cheatsheet / reference, for myself and possibly others, co
 - [x] Graceful termination (`SIGTERM` it is).
 - [x] Build and run C++.
 - [x] Pass environmental variables to `docker compose`.
-- [ ] Multiple containers witihn one `docker-compose.yml`.
-- [ ] Exposing ports from within `docker compose`.
-- [ ] Containers communicating via each other within a "local" network.
+- [x] Multiple containers witihn one `docker-compose.yml`.
+- [x] Exposing ports from within `docker compose`.
+- [x] Containers communicating via each other within a "local" network.
 - [ ] Sharing volumes, both with the host machine and among containers.
 - [ ] Startup order, keepalives, delayed keepalives.
 

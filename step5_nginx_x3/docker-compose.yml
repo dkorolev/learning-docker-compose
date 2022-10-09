@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  nginx_router:
+    build: nginx_router
+    ports:
+    - ${PORT:-5000}:80
+  nginx1:
+    build: nginx1
+  nginx2:
+    build: nginx2
