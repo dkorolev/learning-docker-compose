@@ -1,5 +1,17 @@
 # `learning-docker-compose`
 
+## Outline
+
+This is to serve as a cheatsheet / reference, for myself and possibly others, covering:
+
+- [x] Basic `docker-compose.yml` syntax and run commands.
+- [x] Graceful termination (`SIGTERM` it is).
+- [ ] Multiple containers witihn one `docker-compose.yml`.
+- [ ] Exposing ports from within `docker compose`.
+- [ ] Containers communicating via each other within a "local" network.
+- [ ] Sharing volumes, both with the host machine and among containers.
+- [ ] Startup order, keepalives, delayed keepalives.
+
 ## Setup
 
 I'm using `docker compose`, not `docker-compose`. Version seems to matter. Here's mine:
