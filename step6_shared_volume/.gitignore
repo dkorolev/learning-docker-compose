@@ -1,0 +1,2 @@
+# Run with `VOLUME=. docker compose up` to see this volume populated.
+autogen

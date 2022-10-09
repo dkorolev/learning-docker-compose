@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  writer:
+    build: writer
+    volumes:
+    - ${VOLUME:-virtual}:/shared
+  reader:
+    build: reader
+    volumes:
+    - ${VOLUME:-virtual}:/shared
+volumes:
+  virtual: {}

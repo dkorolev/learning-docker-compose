@@ -11,7 +11,7 @@ This is to serve as a cheatsheet / reference, for myself and possibly others, co
 - [x] Multiple containers witihn one `docker-compose.yml`.
 - [x] Exposing ports from within `docker compose`.
 - [x] Containers communicating via each other within a "local" network.
-- [ ] Sharing volumes, both with the host machine and among containers.
+- [x] Sharing volumes, both with the host machine and among containers.
 - [ ] Startup order, keepalives, delayed keepalives.
 
 ## Setup
