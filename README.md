@@ -14,7 +14,7 @@ This is to serve as a cheatsheet / reference, for myself and possibly others, co
 - [x] Sharing volumes, both with the host machine and among containers.
 - [x] Pass env vars arguments from `docker-compose.yml` to a container.
 - [x] Startup order, keepalives, delayed keepalives.
-- [ ] Autorestart policy.
+- [x] Autorestart policy.
 
 ## Setup
 
