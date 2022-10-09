@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  nginx_example:
+    build: nginx_example
+    ports:
+    - 5000:80
