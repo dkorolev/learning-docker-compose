@@ -1,0 +1,15 @@
+name: Git commit SHA
+
+on:
+  workflow_dispatch:
+
+env:
+  SHA: ${{ github.sha }}
+
+jobs:
+  hash:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SHA of fix letters
+        run: |
+          echo "SHA: ${SHA::6}"
