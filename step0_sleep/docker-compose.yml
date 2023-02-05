@@ -2,3 +2,5 @@ version: "3.8"
 services:
   sleep:
     build: sleep
+    environment:
+      - N=5
