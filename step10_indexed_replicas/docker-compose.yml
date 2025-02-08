@@ -1,5 +1,20 @@
 services:
+  indexer:
+    build: indexer
+    # NOTE(dkorolev): Somehow this one is not respected by my `podman-compose`. Works fine under Docker.
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/healthz"]
+      interval: 0.5s
+      timeout: 1s
+      retries: 100
+      start_period: 0.5s
+    environment:
+      - N=${N:-5}
   worker:
     build: worker
+    # NOTE(dkorolev): Somehow this one is not respected by my `podman-compose`. Works fine under Docker.
+    depends_on:
+      indexer:
+        condition: service_healthy
     deploy:
-      replicas: 5
+      replicas: ${N:-5}

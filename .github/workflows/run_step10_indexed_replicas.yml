@@ -14,3 +14,7 @@ jobs:
         run: (cd step10_indexed_replicas; docker compose up --build)
       - name: Run with compact output
         run: (cd step10_indexed_replicas; docker compose up --build 2>&1 | grep HOSTNAME)
+      - name: Run with full output N=10
+        run: (cd step10_indexed_replicas; N=10 docker compose up --build)
+      - name: Run with compact output N=10
+        run: (cd step10_indexed_replicas; N=10 docker compose up --build 2>&1 | grep HOSTNAME)

@@ -2,7 +2,7 @@
 
 ## Notes
 
-Same as `step9_replicas`, but with replica indexes -- see the next commit!
+Same as `step9_replicas`, but with replica indexes.
 
 First, in `docker-compose.yml`, `container_name:` is incompatible with `replicas:`.
 
