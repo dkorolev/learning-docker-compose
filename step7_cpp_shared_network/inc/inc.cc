@@ -26,7 +26,13 @@ int main(int argc, char** argv) {
     try {
       using current::ToString;
       std::cout << "Querying " << FLAGS_host + "/add/" + ToString(r.url_path_args[0]) + '/' << FLAGS_by << std::endl;
-      r(HTTP(GET(FLAGS_host + "/add/" + ToString(r.url_path_args[0]) + '/' + ToString(FLAGS_by))).body);
+      auto const t0 = current::time::Now();
+      auto const s = HTTP(GET(FLAGS_host + "/add/" + ToString(r.url_path_args[0]) + '/' + ToString(FLAGS_by))).body;
+      std::ostringstream oss;
+      oss << current::strings::Trim(s);
+      auto const t1 = current::time::Now();
+      oss << ", in " << (t1-t0).count() / 1'000 << "ms\n";
+      r(oss.str());
       std::cout << "Success." << std::endl;
     } catch (current::Exception const&) {
       r("ERROR\n", HTTPResponseCode.InternalServerError);

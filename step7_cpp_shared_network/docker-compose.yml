@@ -1,9 +1,21 @@
-version: "3.8"
 services:
   add_service:
     build: add
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      - slow
   inc_service:
     build: inc
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      - slow
     command: --by ${BY:-1}
     ports:
-    - 5000:80
+    - 8888:80
+networks:
+  slow:
+    driver: bridge

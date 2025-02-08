@@ -6,5 +6,6 @@ COPY ./add.cc /
 RUN g++ -static add.cc -o add
 
 FROM alpine:latest
+RUN apk add iproute2
 COPY --from=build /add /add
 ENTRYPOINT ["/add"]
