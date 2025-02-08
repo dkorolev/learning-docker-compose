@@ -23,3 +23,9 @@ Now re-test the query. To remove the delay:
 ```
 docker exec -i $(docker ps | grep -i add_service | cut -f 1 -d' ') sh -c 'tc qdisc del dev eth0 root netem'
 ```
+
+This will work with `inc_service` too. To see the delay:
+
+```
+docker exec -i $(docker ps | grep -i add_service | cut -f 1 -d' ') sh -c 'tc qdisc show dev eth0'
+```
