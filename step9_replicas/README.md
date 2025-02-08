@@ -1,5 +1,9 @@
 # `step9_replicas`
 
+## Notes
+
+First, in `docker-compose.yml`, `container_name:` is incompatible with `replicas:`.
+
 ## Run Instructions
 
 Outer script (keep in mind `HOSTNAME` may well be empty in the output.
