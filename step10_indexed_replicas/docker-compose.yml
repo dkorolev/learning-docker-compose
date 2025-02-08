@@ -1,0 +1,5 @@
+services:
+  worker:
+    build: worker
+    deploy:
+      replicas: 5
