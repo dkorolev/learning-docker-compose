@@ -10,10 +10,12 @@ RUN (cd etcd; ./build.sh)
 
 FROM alpine
 
-# NOTE(dkorolev): This did not work forme.
+# NOTE(dkorolev): This did not work for me.
 # ENV PIP_NO_CACHE_DIR=1
 
-RUN apk add bash python3 py3-pip gcc python3-dev musl-dev linux-headers
+# NOTE(dkorolev): It absolutely is an overkill to install all this just for `psutil` from Python :-(
+
+RUN apk add bash python3 py3-pip gcc python3-dev musl-dev linux-headers curl
 RUN mkdir -p /usr/local/bin
 COPY --from=etcd /etcd/bin/etcd /usr/local/bin/
 COPY --from=etcd /etcd/bin/etcdctl /usr/local/bin/

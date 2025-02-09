@@ -1,15 +1,22 @@
 services:
-  etcd-0:
-    build: etcd
+  indexer:
+    build: indexer
+    # NOTE(dkorolev): Somehow this one is not respected by my `podman-compose`. Works fine under Docker.
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/healthz"]
+      interval: 0.5s
+      timeout: 1s
+      retries: 100
+      start_period: 0.5s
     environment:
-    - NAME=etcd-0
-  etcd-1:
+      - N=${N:-5}
+  etcd:
     build: etcd
-    environment:
-    - NAME=etcd-1
-  etcd-2:
-    build: etcd
-    environment:
-    - NAME=etcd-2
+    # NOTE(dkorolev): Somehow this one is not respected by my `podman-compose`. Works fine under Docker.
+    depends_on:
+      indexer:
+        condition: service_healthy
+    deploy:
+      replicas: ${N:-5}
   demo:
     build: demo

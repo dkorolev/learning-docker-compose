@@ -12,7 +12,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Build the end-to-end etcd test
         run: (cd step12_etcd_indexed; docker compose build)
-      - name: Run the end-to-end etcd test
+      - name: Run the end-to-end etcd test w/o N (default to N=5)
         run: (cd step12_etcd_indexed; docker compose up)
-      - name: Run the end-to-end etcd test for the second time
-        run: (cd step12_etcd_indexed; docker compose up)
+      - name: Run the end-to-end etcd test N=7
+        run: (cd step12_etcd_indexed; N=7 docker compose up)
+      - name: Run the end-to-end etcd test N=3
+        run: (cd step12_etcd_indexed; N=3 docker compose up)
+      - name: Run the end-to-end etcd test N=17
+        run: (cd step12_etcd_indexed; N=17 docker compose up)
