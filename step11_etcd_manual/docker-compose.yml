@@ -1,0 +1,15 @@
+services:
+  etcd-0:
+    build: etcd
+    environment:
+    - NAME=etcd-0
+  etcd-1:
+    build: etcd
+    environment:
+    - NAME=etcd-1
+  etcd-2:
+    build: etcd
+    environment:
+    - NAME=etcd-2
+  demo:
+    build: demo

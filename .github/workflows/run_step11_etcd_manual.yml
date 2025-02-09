@@ -1,0 +1,18 @@
+name: Run `step11_etcd_manual`
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  run_step11_etcd_manual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+      - name: Build the end-to-end etcd test
+        run: (cd step11_etcd_manual; docker compose build)
+      - name: Run the end-to-end etcd test
+        run: (cd step11_etcd_manual; docker compose up)
+      - name: Run the end-to-end etcd test for the second time
+        run: (cd step11_etcd_manual; docker compose up)
