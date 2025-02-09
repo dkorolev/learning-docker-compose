@@ -1,0 +1,18 @@
+name: Run `step12_etcd_indexed`
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  run_step12_etcd_indexed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+      - name: Build the end-to-end etcd test
+        run: (cd step12_etcd_indexed; docker compose build)
+      - name: Run the end-to-end etcd test
+        run: (cd step12_etcd_indexed; docker compose up)
+      - name: Run the end-to-end etcd test for the second time
+        run: (cd step12_etcd_indexed; docker compose up)
