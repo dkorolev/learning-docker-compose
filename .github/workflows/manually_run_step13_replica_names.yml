@@ -1,0 +1,13 @@
+name: Manually run `step13_replica_names`
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run_step13:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+      - name: Run
+        run: (cd step13_replica_names; docker compose up --build)

@@ -1,0 +1,9 @@
+services:
+  server:
+    build: server
+    # deploy:
+    #   replicas: 2
+  pinger:
+    build: pinger
+    command: ["http://server:5000"]
+    # command: ["http://step13_replica_names-server-1:5000", "http://step13_replica_names-server-2:5000"]
