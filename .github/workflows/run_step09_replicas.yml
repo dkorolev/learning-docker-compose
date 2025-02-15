@@ -1,16 +1,16 @@
-name: Run `step9_replicas`
+name: Run `step09_replicas`
 
 on:
   workflow_dispatch:
   push:
 
 jobs:
-  run_step9_replicas:
+  run_step09_replicas:
     runs-on: ubuntu-latest
     steps:
       - name: Clone
         uses: actions/checkout@v3
       - name: Run with full output
-        run: (cd step9_replicas; docker compose up --build)
+        run: (cd step09_replicas; docker compose up --build)
       - name: Run with compact output
-        run: (cd step9_replicas; docker compose up --build 2>&1 | grep HOSTNAME)
+        run: (cd step09_replicas; docker compose up --build 2>&1 | grep HOSTNAME)

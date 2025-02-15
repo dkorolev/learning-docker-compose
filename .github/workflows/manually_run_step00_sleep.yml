@@ -1,13 +1,13 @@
-name: Manually run `step0_sleep`
+name: Manually run `step00_sleep`
 
 on:
   workflow_dispatch:
 
 jobs:
-  run_step0_sleep:
+  run_step00_sleep:
     runs-on: ubuntu-latest
     steps:
       - name: Clone
         uses: actions/checkout@v3
       - name: Run
-        run: (cd step0_sleep; docker compose up --build)
+        run: (cd step00_sleep; docker compose up --build)
