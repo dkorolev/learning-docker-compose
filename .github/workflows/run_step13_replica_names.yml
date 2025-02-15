@@ -1,6 +1,7 @@
-name: Manually run `step13_replica_names`
+name: Run `step13_replica_names`
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
