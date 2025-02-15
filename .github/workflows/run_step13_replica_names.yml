@@ -11,4 +11,4 @@ jobs:
       - name: Clone
         uses: actions/checkout@v3
       - name: Run
-        run: (cd step13_replica_names; docker compose up --build)
+        run: (cd step13_replica_names; COMPOSE_PROJECT_NAME=bazinga docker compose up --build)
