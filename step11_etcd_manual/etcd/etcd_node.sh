@@ -25,13 +25,13 @@ trap cb_sigquit SIGQUIT
 # NOTE(dkorolev): Use the `&` + `wait` combo for trapped signals to work, so that shutdowns are fast.
 
 /usr/local/bin/etcd \
-  --name=$NAME \
-  --initial-advertise-peer-urls=http://$NAME:2380 \
-  --advertise-client-urls=http://$NAME:2379 \
+  --name=step11_etcd_manual-$NAME \
+  --initial-advertise-peer-urls=http://step11_etcd_manual-$NAME:2380 \
+  --advertise-client-urls=http://step11_etcd_manual-$NAME:2379 \
   --listen-client-urls=http://0.0.0.0:2379 \
   --listen-peer-urls=http://0.0.0.0:2380 \
   --initial-cluster-token=blah \
-  --initial-cluster=etcd-0=http://etcd-0:2380,etcd-1=http://etcd-1:2380,etcd-2=http://etcd-2:2380 \
+  --initial-cluster=etcd-0=http://step11_etcd_manual-etcd-0:2380,etcd-1=http://step11_etcd_manual-etcd-1:2380,etcd-2=http://step11_etcd_manual-etcd-2:2380 \
   --initial-cluster-state=new \
   --data-dir=/var/lib/etcd 2>&1 &
 ETCD_PID=$!
